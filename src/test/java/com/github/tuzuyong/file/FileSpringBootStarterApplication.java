@@ -19,7 +19,7 @@ public class FileSpringBootStarterApplication {
 
 
     @Bean({"odsFtpProperties"})
-    @ConfigurationProperties(prefix = "file.ftp.ods")
+    @ConfigurationProperties(prefix = "file.ftp.xxx")
     public FtpProperties odsFtpProperties() {
         return new FtpProperties();
     }

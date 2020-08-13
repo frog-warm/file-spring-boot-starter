@@ -6,18 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.net.ftp.*;
 import org.springframework.beans.factory.DisposableBean;
 
-import javax.naming.AuthenticationException;
 import java.io.*;
-import java.lang.management.ThreadInfo;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.function.Function;
 
 /**
- * 请输入类注释 TODO
+ * ftp文件服务
  *
  * @author tuzy
  */

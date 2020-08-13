@@ -1,6 +1,5 @@
 package com.github.tuzuyong.file.service;
 
-import com.github.tuzuyong.file.config.FtpProperties;
 import com.github.tuzuyong.file.service.impl.FtpExecute;
 import org.apache.commons.net.ftp.FTPClient;
 
@@ -110,7 +109,7 @@ public interface FtpFileService extends Closeable {
 
     long getTempFileSize();
 
-    default void close() throws IOException {
+    default void close() {
         logout();
     }
 }

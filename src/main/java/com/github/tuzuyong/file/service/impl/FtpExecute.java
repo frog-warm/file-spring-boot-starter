@@ -11,7 +11,7 @@ public interface FtpExecute<T> {
      *
      * @param client ftp connection
      * @return a result object or {@code null} if none
-     * @throws IOException
+     * @throws IOException e
      */
     T doInFtp(FTPClient client) throws IOException;
 }
