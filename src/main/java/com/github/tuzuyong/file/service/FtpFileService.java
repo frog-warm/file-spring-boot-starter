@@ -100,15 +100,59 @@ public interface FtpFileService extends Closeable {
         return execute(client -> client.deleteFile(remoteFile));
     }
 
+    /**
+     * 创建文件夹
+     *
+     * @param pathname 文件夹路径
+     * @return 执行结果
+     */
+    default boolean makeDir(String pathname) {
+        return execute(client -> client.makeDirectory(pathname));
+    }
 
+    /**
+     * 删除文件夹
+     *
+     * @param pathname 文件夹路径
+     * @return 执行结果
+     */
+    default boolean removeDir(String pathname) {
+        return execute(client -> client.removeDirectory(pathname));
+    }
+
+    /**
+     * 执行ftp文件命令
+     *
+     * @param action 执行器
+     * @param <R>    执行返回类型
+     * @return 执行结果
+     */
     <R> R execute(FtpExecute<R> action);
 
+    /**
+     * 设置字符集
+     *
+     * @param charset 字符集
+     * @return this
+     */
     FtpFileService setCharset(Charset charset);
 
+
+    /**
+     * 退出登录
+     */
     void logout();
 
+    /**
+     * 获取临时文件大小
+     *
+     * @return 未创建返回 0
+     */
     long getTempFileSize();
 
+    /**
+     * 关闭清理
+     */
     default void close() {
         logout();
     }
