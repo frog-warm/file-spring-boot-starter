@@ -121,6 +121,53 @@ public interface FtpFileService extends Closeable {
     }
 
     /**
+     * 下载远程文件
+     *
+     * @param remoteFile 远程文件
+     * @return 返回流
+     */
+    default InputStream retrieveFile(String remoteFile) {
+        return execute(client -> client.retrieveFileStream(remoteFile));
+    }
+
+    /**
+     * 下载远程文件
+     *
+     * @param remoteFile 远程文件
+     * @param out        下载流
+     * @return 命令执行结果
+     */
+    default boolean retrieveFile(String remoteFile, OutputStream out) {
+        return execute(client -> client.retrieveFile(remoteFile, out));
+    }
+
+    /**
+     * 下载远程文件
+     *
+     * @param remoteFile 远程文件
+     * @param file       下载写入文件
+     * @return 命令执行结果
+     */
+    default boolean retrieveFile(String remoteFile, File file) throws IOException {
+        try (FileOutputStream out = new FileOutputStream(file)) {
+            return this.retrieveFile(remoteFile, out);
+        }
+    }
+
+    /**
+     * 下载远程文件
+     *
+     * @param remoteFile 远程文件
+     * @param localFile  下载写入文件
+     * @return 命令执行结果
+     */
+    default boolean retrieveFile(String remoteFile, String localFile) throws IOException {
+        try (FileOutputStream out = new FileOutputStream(localFile)) {
+            return this.retrieveFile(remoteFile, out);
+        }
+    }
+
+    /**
      * 执行ftp文件命令
      *
      * @param action 执行器
