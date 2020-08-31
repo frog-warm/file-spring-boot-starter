@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
- * 请输入类注释 TODO
+ * ftp配置类
  *
  * @author tuzy
  */
