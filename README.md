@@ -16,7 +16,7 @@ file.ftp.password=test
 1. 添加配置文件
 ```
 file.ftp.xxx.host=192.168.50.20
-file.ftp.xxx.port=30000
+file.ftp.xxx.port=222
 file.ftp.xxx.userName=test
 file.ftp.xxx.password=test
 ```
