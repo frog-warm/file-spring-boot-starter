@@ -18,15 +18,15 @@ public class FileSpringBootStarterApplication {
     }
 
 
-    @Bean({"odsFtpProperties"})
+    @Bean({"xxxFtpProperties"})
     @ConfigurationProperties(prefix = "file.ftp.xxx")
-    public FtpProperties odsFtpProperties() {
+    public FtpProperties xxxFtpProperties() {
         return new FtpProperties();
     }
 
-    @Bean("odsFtpFileService")
-    public FtpFileService odsFtpFileService(@Qualifier("odsFtpProperties") FtpProperties odsFtpProperties) {
-        return new FtpFileServiceImpl(odsFtpProperties);
+    @Bean("xxxFtpFileService")
+    public FtpFileService xxxFtpFileService(@Qualifier("xxxFtpProperties") FtpProperties xxxFtpProperties) {
+        return new FtpFileServiceImpl(xxxFtpProperties);
     }
 
 }
