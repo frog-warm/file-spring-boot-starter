@@ -6,7 +6,7 @@
 - 当只需要使用一个FTP服务时，添加以下配置，会默认注入
 ```
 file.ftp.host=192.168.50.20
-file.ftp.port=21
+file.ftp.port=2121
 file.ftp.userName=test
 file.ftp.password=test
 #file.ftp.localPath
