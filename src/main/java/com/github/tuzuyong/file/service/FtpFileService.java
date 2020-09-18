@@ -26,7 +26,7 @@ public interface FtpFileService extends Closeable {
      * 向当前文件对象写入数据
      *
      * @param line      数据
-     * @param lineBreak 末尾是否添加换行
+     * @param lineBreak 末尾是否添加换行 根据系统差异会是不同的字符
      */
     void write(String line, boolean lineBreak);
 
@@ -73,13 +73,21 @@ public interface FtpFileService extends Closeable {
     }
 
     /**
-     * 改变工作目录
+     * 切换工作目录
      *
      * @param remotePath 远程目录
      * @return 是否成功
      */
     default boolean changeDir(String remotePath) {
         return execute(client -> client.changeWorkingDirectory(remotePath));
+    }
+    /**
+     * 切换根工作目录
+     *
+     * @return 是否成功
+     */
+    default boolean changeDir() {
+        return execute(FTPClient::changeToParentDirectory);
     }
 
     /**
